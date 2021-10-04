@@ -1,5 +1,6 @@
 # users_controller.rb
 class UsersController < ApplicationController
+  skip_before_action :verify_authenticity_token
   def index
     render plain: User.order(:name).map {|user| user.to_pleasant_string}.join("\n")
   end
@@ -13,7 +14,7 @@ class UsersController < ApplicationController
       email: email,
       password: password,
     )
-    response_text "New user created with id #{new_user.id}"
+    response_text= "New user created with id #{new_user.id}"
     render plain: response_text
   end
 
@@ -22,5 +23,4 @@ class UsersController < ApplicationController
     user=User.find(id)
     render plain: user.to_pleasant_string
   end
-
 end
