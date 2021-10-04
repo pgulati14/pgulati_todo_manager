@@ -23,4 +23,13 @@ class UsersController < ApplicationController
     user=User.find(id)
     render plain: user.to_pleasant_string
   end
+  def login
+    email = params[:email]
+    password = params[:password]
+    user = User.find_by(email: email, password: password)
+    if (user == nil) then
+    render plain: "not authentic"
+    else render plain: "authentic"
+    end
+  end
 end
