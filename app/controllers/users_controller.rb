@@ -1,6 +1,6 @@
 # users_controller.rb
 class UsersController < ApplicationController
   def index
-    render plain: "Hello, this is /users!"
+    render plain: User.all.to_a
   end
 end
