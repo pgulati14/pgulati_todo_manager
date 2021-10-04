@@ -5,7 +5,8 @@ class UsersController < ApplicationController
   end
   def show
     id = params[:id]
-    render plain: "the user with id u want was #{id}"
+    user=User.find(id)
+    render plain: user.to_pleasant_string
   end
 
 end
