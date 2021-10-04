@@ -8,9 +8,5 @@ Rails.application.routes.draw do
   post "users/login", to: "users#login"
   resources :todos
   resources :users
-  #resources :users  #for users
-  #get "todos/:id", to: "todos#show"
-  #patch "todos/:id", to: "todos#update"
-  #resources "users"
-  #post "/users/login"
+  
 end
