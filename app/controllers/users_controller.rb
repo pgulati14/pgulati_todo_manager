@@ -27,9 +27,5 @@ class UsersController < ApplicationController
     email = params[:email]
     password = params[:password]
     user = User.find_by(email: email, password: password)
-    if (user == nil) then
-    render plain: "not authentic"
-    else render plain: "authentic"
-    end
+    render plain: user.present?
   end
-end
